@@ -1,13 +1,31 @@
-export default function generatePass() {
-    let password: string = ''
+interface GeneratePassOptions {
+  length: number;
+  useLowercase: boolean;
+  useUppercase: boolean;
+  useNumbers: boolean;
+  useSpecialChars: boolean;
+}
 
-    let characters: string = 'AaBbCcDdEeFfGgHhIiJjLlMmNnOoPpQqRrSsTtUuVvXxZzWwYyÇç1234567890!@#$%&'
-    let passwordLength = 9
+export default function generatePass({
+  length,
+  useLowercase,
+  useUppercase,
+  useNumbers,
+  useSpecialChars,
+}: GeneratePassOptions) {
+  let password = '';
+  let characters = '';
 
-    for (let index = 0; index < passwordLength; index++)
-        password += characters.charAt (
-            Math.floor(Math.random() * characters.length)
-    )
+  if (useLowercase) characters += 'abcdefghijklmnopqrstuvwxyz';
+  if (useUppercase) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if (useNumbers) characters += '0123456789';
+  if (useSpecialChars) characters += '!@#$%&*()-_=+[]{};:,.<>?';
 
-    return password
+  if (!characters) return '';
+
+  for (let index = 0; index < length; index++) {
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return password;
 }

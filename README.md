@@ -14,9 +14,11 @@ A interface segue uma identidade visual inspirada no tema "Bat", com logo person
 
 ## Funcionalidades
 
-- Geracao de senha com 9 caracteres
+- Geracao de senha com tamanho configuravel (de 4 a 32 caracteres)
+- Selecao de tipos de caracteres (a-z, A-Z, 0-9 e especiais)
 - Exibicao da senha em campo de texto
 - Botao para copiar a senha com `expo-clipboard`
+- Feedback visual para sucesso e validacoes (ex.: sem tipo selecionado)
 - Layout simples e responsivo para mobile
 
 ## Tecnologias utilizadas
@@ -86,9 +88,11 @@ npm run web
 ## Como usar
 
 1. Abra o app.
-2. Toque em **GENERATE** para criar uma nova senha.
-3. Toque em **COPY** para copiar a senha gerada.
-4. Cole onde desejar.
+2. Defina o tamanho da senha.
+3. Ative/desative os tipos de caracteres desejados.
+4. Toque em **GENERATE** para criar uma nova senha.
+5. Toque em **COPY** para copiar a senha gerada.
+6. Cole onde desejar.
 
 ## Scripts disponiveis
 
